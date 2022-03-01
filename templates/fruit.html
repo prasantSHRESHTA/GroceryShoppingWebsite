@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Fruits</title>
+  </head>
+  <body>
+    {% if request.user.is_authenticated %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"><b>MartAtDoor</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/veg">Vegetables</a></li>
+            <li><a class="dropdown-item" href="/fruit">Fruits</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/groc">Daily Essentials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="d-flex  nav-item">
+          <a class="nav-link" href="/logout">LogOut</a>
+        </li>
+         <li class="d-flex  nav-item">
+          <a class="nav-link" href="/cart">CART</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+    {% else %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"><b>MartAtDoor</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/veg">Vegetables</a></li>
+            <li><a class="dropdown-item" href="/fruit">Fruits</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/groc">Daily Essentials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="d-flex  nav-item">
+          <a class="nav-link" href="/log">Login</a>
+        </li>
+
+        <li class="d-flex  nav-item">
+          <a class="nav-link" href="/signup">Sign Up</a>
+        </li>
+         <li class="d-flex  nav-item">
+          <a class="nav-link" href="/cart">CART</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+    {% endif %}
+    <h1 class="text-light bg-secondary text-center mx-30 my-4">FRUITS</h1>
+    <div class="container">
+        <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+            {% csrf_token %}
+            <img height="220.19" width="351.32" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH_CflHWskSLrMUJVWoznv3JRNBjcZOju9aA&usqp=CAU">
+
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="Apple"><input name="price" type="hidden" value=" 100 "> Apple</span><br>1 kg <p class="text-center" >Rs 100</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+            {% csrf_token %}
+            <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322096/mangoes-chopped-and-fresh.jpg" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="Mango"><input name="price" type="hidden" value=" 90 ">Potato</span><br>1 kg <p class="text-center"> Rs 90</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+             {% csrf_token %}
+            <img src="https://cdn.pixabay.com/photo/2018/05/08/20/19/pomegranate-3383814__480.jpg" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="Pomegranate"><input name="price" type="hidden" value=" 80 ">Pomegranate</span><br>1 kg<p class="text-center"> Rs 80</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+  {% csrf_token %}
+            <img src="https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="WaterMelon"><input name="price" type="hidden" value=" 40 ">WaterMelon</span><br>1 Piece <p class="text-center"> Rs 40</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+  {% csrf_token %}
+           <img src="https://www.healthifyme.com/blog/wp-content/uploads/2020/04/Muskmelon-cover-1.jpg" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="MuskMelon"><input name="price" type="hidden" value=" 50 "> MuskMelon</span><br>1 kg <p class="text-center"> Rs 50</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+  {% csrf_token %}
+            <img src="data:image/jpeg;base64,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" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="Grapes"><input name="price" type="hidden" value=" 30 ">Grapes</span><br>1 kg <p class="text-center"> Rs 30</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+  {% csrf_token %}
+            <img src="https://static.onecms.io/wp-content/uploads/sites/35/2020/06/25/guava-promo.jpg" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="Guava"><input name="price" type="hidden" value=" 15 "> Guava</span><br>1 kg <p class="text-center" > Rs 15</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+  {% csrf_token %}
+            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2017/01/Bananas-218094b-scaled.jpg" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="Banana"><input name="price" type="hidden" value=" 20 ">Banana</span><br>1 kg <p class="text-center"> Rs 20</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <form action="/fruit" method="post">
+  {% csrf_token %}
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqhykx_7BhReB82vAIImWKVDFKvZwLoc2tng&usqp=CAU" height="220.19" width="351.32">
+            <div class="card-body">
+              <p class="card-text text-center"><input type="hidden" name="product" value="StrawBerry"><input name="price" type="hidden" value=" 150 "> StrawBerry</span><br>1 kg <p class="text-center" > Rs 150</p></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                </div>
+                <small class="text-muted">InStock</small>
+              </div>
+            </div></form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    </form>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
